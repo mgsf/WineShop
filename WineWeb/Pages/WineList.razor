@@ -1,0 +1,25 @@
+﻿@page   "/winelist"
+
+<div class="card-columns">
+    @foreach (var Wine in Wines)
+    {
+        <div class="card">
+            <div class="card-img" style="background-image: url('@Wine.Image');">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@Wine.Name</h5>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">
+                    <button class="btn btn-primary">
+                        More Info
+                    </button>
+                </small>
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+
+}
