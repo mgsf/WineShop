@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Components;
 using WineWeb.Models;
+using WineWeb.Services;
 
 namespace WineWeb.Pages
 {
@@ -9,12 +12,19 @@ namespace WineWeb.Pages
     {
         public IEnumerable<Wine> Wines { get; set; }
 
-        protected override Task OnInitializedAsync()
+        [Inject]
+        public IWineDataService WineDataService { get; set; }
+
+        protected async override Task OnInitializedAsync()
         {
-            InitializeWines();
-            return base.OnInitializedAsync();
+            //Use below two lines of code when loading local data
+            //InitializeWines();  //- Mentioned below
+            //return base.OnInitializedAsync();
+            Wines = (await WineDataService.GetAllWines()).ToList();
+            
         }
 
+        
         private void InitializeWines()
         {
             var w1 = new Wine
@@ -229,8 +239,11 @@ namespace WineWeb.Pages
 
             Wines = new List<Wine> { w1, w2, w3, w4, w5, w6, w7, w8, w9, w10, w11, w12, w13, w14, w15 };
         }
+       
 
     }
 
 
 }
+
+        
