@@ -3,9 +3,9 @@
   <PropertyGroup Label="Globals">
     <ProjectVersion>2.1</ProjectVersion>
     <DockerTargetOS>Linux</DockerTargetOS>
-    <ProjectGuid>{6D0DC27D-29F8-46A2-BEBD-F26BBB0094C7}</ProjectGuid>
+    <ProjectGuid>{16A9699B-02CB-4C2D-812A-50CC5430FA0E}</ProjectGuid>
     <DockerLaunchBrowser>True</DockerLaunchBrowser>
-    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/wine</DockerServiceUrl>
+    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
     <DockerServiceName>catalog</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>

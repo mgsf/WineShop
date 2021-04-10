@@ -1,35 +1,13 @@
-version: '3.4'
+version: "3.4"
 
 services:
   catalog:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ConnectionStrings__DefaultConnection=Data Source=db;Initial Catalog=WineCatalog;Integrated Security=False;User ID=sa;Password=StrongPwd#123;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;
     ports:
-      - "80"
-      - "443"
-    volumes:
-      - ~/.aspnet/https:/root/.aspnet/https:ro
-      - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
-    depends_on:
-      - db
-
-  wineweb:
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=https://+:443;http://+:80
-    ports:
-      - "80"
-      - "443"
-    volumes:
-      - ~/.aspnet/https:/root/.aspnet/https:ro
-      - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+      - "3000:80"
 
   db:
-    image: mcr.microsoft.com/mssql/server:2019-latest
-    expose:
-     - "1433"
-    environment:
-     - ACCEPT_EULA=Y
-     - MSSQL_SA_PASSWORD=StrongPwd#123
-    
+    ports:
+      - "1433:1433"

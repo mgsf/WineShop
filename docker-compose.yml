@@ -7,11 +7,8 @@ services:
       context: .
       dockerfile: Catalog/Dockerfile
 
-  wineweb:
-    image: ${DOCKER_REGISTRY-}wineweb
+  db:
+    image: ${DOCKER_REGISTRY-}db
     build:
       context: .
-      dockerfile: WineWeb/Dockerfile
-
-
-
+      dockerfile: mssqldb/Dockerfile 
