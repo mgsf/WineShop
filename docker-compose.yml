@@ -7,6 +7,12 @@ services:
       context: .
       dockerfile: Catalog/Dockerfile
 
+  wineweb:
+    image: ${DOCKER_REGISTRY-}wineweb
+    build:
+      context: .
+      dockerfile: WineWeb/Dockerfile
+  
   db:
     image: ${DOCKER_REGISTRY-}db
     build:
